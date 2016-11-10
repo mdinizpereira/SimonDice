@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#A9D0F5</color>
+    <color name="colorPrimaryDark">#0489B1</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="rojof">#DF0101</color>
+    <color name="rojoc">#F5A9A9</color>
+    <color name="azulf">#01A9DB</color>
+    <color name="azulc">#A9D0F5</color>
+    <color name="amarillof">#D7DF01</color>
+    <color name="amarilloc">#F2F5A9</color>
+    <color name="verdef">#01DF01</color>
+    <color name="verdec">#A9F5A9</color>
+</resources>
