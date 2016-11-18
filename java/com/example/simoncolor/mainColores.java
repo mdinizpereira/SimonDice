@@ -19,6 +19,7 @@ public class mainColores extends AppCompatActivity implements OnClickListener {
     TextView explicacion;
     MediaPlayer mpred, mpblue, mpyellow, mpgreen;
     int vuelta = 1;
+    boolean mtwopanel = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,18 @@ public class mainColores extends AppCompatActivity implements OnClickListener {
         verde.setOnClickListener(this);
         amarillo.setOnClickListener(this);
         inicio.setOnClickListener(this);
+
+        if(findViewById(R.id.landscape)== null){
+           mtwopanel = true;
+        }
+        else{
+            mtwopanel = false;
+        }
+        if(mtwopanel){
+            Toast.makeText(getApplicationContext(),"pantalla en retrato",Toast.LENGTH_SHORT).show();
+        } else{
+            Toast.makeText(getApplicationContext(),"pantalla rotada",Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
