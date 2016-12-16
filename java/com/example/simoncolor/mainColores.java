@@ -1,5 +1,6 @@
 package com.example.simoncolor;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -81,9 +82,10 @@ public class mainColores extends AppCompatActivity implements OnClickListener {
                 v.setEnabled(false);
                 break;
         }
+        String respuesta="";
         if (simondice.size() == contestacion.size()) {
             if (simondice.equals(contestacion)) {
-                Toast.makeText(getApplicationContext(), "Bien hecho!", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(getApplicationContext(), "Bien hecho!", Toast.LENGTH_SHORT).show();
                 contestacion.clear();
                 explicacion.setText(String.valueOf(vuelta));
                 vuelta = vuelta + 1;
@@ -91,16 +93,24 @@ public class mainColores extends AppCompatActivity implements OnClickListener {
                     public void run() {
                         nuevocolor();
                     }
-                }, 1300);
+                }, 1300);*/
+                respuesta = "has acertado";
 
             } else {
-                Toast.makeText(getApplicationContext(), "Fallaste! vuelve a empezar", Toast.LENGTH_SHORT).show();
+                /*Toast.makeText(getApplicationContext(), "Fallaste! vuelve a empezar", Toast.LENGTH_SHORT).show();
                 contestacion.clear();
                 simondice.clear();
                 inicio.setEnabled(true);
                 vuelta = 1;
-                explicacion.setText("0");
+                explicacion.setText("0");*/
+                respuesta="has fallado";
             }
+            //Este codigo lanza la nueva activity y le pasa la informacion que debe mostrar
+
+            Intent mensaje = new Intent(this,mensaje.class);
+            mensaje.putExtra("contestacion",respuesta);
+            startActivity(mensaje);
+
         }
     }
 
