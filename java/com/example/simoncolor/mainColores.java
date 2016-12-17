@@ -15,9 +15,9 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
     Button inicio, azul, rojo, verde, amarillo;
     TextView explicacion;
     MediaPlayer mpred, mpblue, mpyellow, mpgreen;
-    int vuelta = 1;
-    ArrayList<Integer> simondice = new ArrayList();
-    ArrayList<Integer> contestacion = new ArrayList();
+    int vuelta = 0;
+    ArrayList <Integer> simondice = new ArrayList();
+    ArrayList <Integer> contestacion = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +82,7 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                 simondice.clear();
                 inicio.setEnabled(true);
                 vuelta = 0;
-                explicacion.setText(vuelta);
+                explicacion.setText(String.valueOf(vuelta));
             }
         }
     }
