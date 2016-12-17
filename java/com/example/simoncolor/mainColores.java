@@ -57,13 +57,33 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                 contestacion.add(4);
                 break;
             case R.id.button:
-                if (!contestacion.isEmpty()) {
-                    contestacion.clear();
-                }
+                v.setEnabled(false);
                 nuevocolor();
                 explicacion.setText("0");
                 explicacion.setTextSize(24);
                 break;
+        }
+        if (simondice.size() == contestacion.size()) {
+            if (simondice.equals(contestacion)) {
+                Toast.makeText(getApplicationContext(), "Bien hecho!", Toast.LENGTH_SHORT).show();
+                contestacion.clear();
+                vuelta = vuelta + 1;
+                explicacion.setText(String.valueOf(vuelta));
+
+                v.postDelayed(new Runnable() {
+                    public void run() {
+                        nuevocolor();
+                    }
+                }, 1300);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Fallaste! vuelve a empezar", Toast.LENGTH_SHORT).show();
+                contestacion.clear();
+                simondice.clear();
+                inicio.setEnabled(true);
+                vuelta = 0;
+                explicacion.setText(vuelta);
+            }
         }
     }
 
