@@ -1,5 +1,6 @@
 package com.example.simoncolor;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,6 +37,37 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
     public void onClick(View v) {
 
     }
+    public void parpadear(final Button bflash) {
+        if (bflash == azul) {
+            mpblue = MediaPlayer.create(this,R.raw.azul);
+            mpblue.start();
+            bflash.setBackgroundColor(Color.parseColor("#A9D0F5"));
+        } else if (bflash == rojo) {
+            mpred = MediaPlayer.create(this, R.raw.rojo);
+            mpred.start();
+            bflash.setBackgroundColor(Color.parseColor("#F5A9A9"));
+        } else if (bflash == verde) {
+            mpgreen = MediaPlayer.create(this, R.raw.verde);
+            mpgreen.start();
+            bflash.setBackgroundColor(Color.parseColor("#A9F5A9"));
+        } else if (bflash == amarillo) {
+            mpyellow = MediaPlayer.create(this, R.raw.amarillo);
+            mpyellow.start();
+            bflash.setBackgroundColor(Color.parseColor("#F2F5A9"));
+        }
 
+        bflash.postDelayed(new Runnable() {
+            public void run() {
+                if (bflash == azul)
+                    bflash.setBackgroundColor(Color.parseColor("#01A9DB"));
+                else if (bflash == rojo)
+                    bflash.setBackgroundColor(Color.parseColor("#DF0101"));
+                else if (bflash == verde)
+                    bflash.setBackgroundColor(Color.parseColor("#01DF01"));
+                else if (bflash == amarillo)
+                    bflash.setBackgroundColor(Color.parseColor("#D7DF01"));
+            }
+        }, 500);
+    }
 
 }
