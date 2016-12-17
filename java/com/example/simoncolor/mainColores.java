@@ -7,6 +7,8 @@ import android.widget.TextView;
 import android.media.MediaPlayer;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
+import java.util.ArrayList;
 import android.support.v7.app.AppCompatActivity;
 
 public class mainColores extends AppCompatActivity implements OnClickListener{
@@ -14,6 +16,8 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
     TextView explicacion;
     MediaPlayer mpred, mpblue, mpyellow, mpgreen;
     int vuelta = 1;
+    ArrayList<Integer> simondice = new ArrayList();
+    ArrayList<Integer> contestacion = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,31 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
     }
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.blue:
+                parpadear(azul);
+                contestacion.add(1);
+                break;
+            case R.id.red:
+                parpadear(rojo);
+                contestacion.add(2);
+                break;
+            case R.id.green:
+                parpadear(verde);
+                contestacion.add(3);
+                break;
+            case R.id.yellow:
+                parpadear(amarillo);
+                contestacion.add(4);
+                break;
+            case R.id.button:
+                if (!contestacion.isEmpty()) {
+                    contestacion.clear();
+                }
+                break;
+        }
     }
+
     public void parpadear(final Button bflash) {
         if (bflash == azul) {
             mpblue = MediaPlayer.create(this,R.raw.azul);
