@@ -11,6 +11,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import android.support.v7.app.AppCompatActivity;
 
+/**
+ *
+ */
 public class mainColores extends AppCompatActivity implements OnClickListener{
     Button inicio, azul, rojo, verde, amarillo;
     TextView explicacion;
@@ -19,6 +22,11 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
     ArrayList <Integer> simondice = new ArrayList();
     ArrayList <Integer> contestacion = new ArrayList();
 
+    /**
+     * metodo que carga el layout correspondiente e inicizializa los botones
+     * tambien le asigna la accion a los botones
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,16 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
         amarillo.setOnClickListener(this);
         inicio.setOnClickListener(this);
     }
+
+    /**
+     * este metodo identifica que boton utiliza el metodo y le hace parpadear con un color
+     * mas claro al suyo, aparte añade al arrayList contestacion un numero predefinido segun el color
+     * en caso de ser el boton empezar: vacia el arrayList contestacion, lo deshabilita, llama
+     * al metodo nuevocolor() y empieza el numero de vueltas en 0.
+     * Cuando el tamaño de ambos arrayList es igual, es decir, el usuario haya pulsado tantas veces
+     * como colores "haya dicho simon" comparará los arrayList.
+     * @param v recoge el boton que llama al metodo onclick
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -62,11 +80,12 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                 }
                 v.setEnabled(false);
                 nuevocolor();
-                explicacion.setText("0");
+                explicacion.setText(String.valueOf(vuelta));
                 explicacion.setTextSize(24);
                 break;
         }
         if (simondice.size() == contestacion.size()) {
+            // muestra un toast y limpia el array de contestacion sumando 1 al numero de vueltas y enseña un nuevo color
             if (simondice.equals(contestacion)) {
                 Toast.makeText(getApplicationContext(), "Bien hecho!", Toast.LENGTH_SHORT).show();
                 contestacion.clear();
@@ -78,7 +97,8 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                         nuevocolor();
                     }
                 }, 1300);
-
+            //muestra un toast, limpia los arrayList, vuelve a poner el boton empezar habilitado y vuelve a
+                // poner el numero de vueltas a 0
             } else {
                 Toast.makeText(getApplicationContext(), "Fallaste! vuelve a empezar", Toast.LENGTH_SHORT).show();
                 contestacion.clear();
@@ -90,6 +110,11 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
         }
     }
 
+    /**
+     * este metodo reproduce un sonido y cambia el color del boton que se pasa como parametro
+     * al medio segundo vuelve a su color original
+     * @param bflash esta variable recoge el boton que debe parpadar
+     */
     public void parpadear(final Button bflash) {
         if (bflash == azul) {
             mpblue = MediaPlayer.create(this,R.raw.azul);
@@ -108,7 +133,7 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
             mpyellow.start();
             bflash.setBackgroundColor(Color.parseColor("#F2F5A9"));
         }
-
+        //con el siguiente codigo vuelve a su color inicial pasados 500 ms
         bflash.postDelayed(new Runnable() {
             public void run() {
                 if (bflash == azul)
@@ -122,6 +147,11 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
             }
         }, 500);
     }
+
+    /**
+     * este metodo crea un numero aleatorio entre 1 y 4, lo añade al arrayList simondice y
+     * directamente segun el numero creado hace parpadear el ultimo boton que se ha de pulsar
+     */
     public void nuevocolor() {
         int valor = (int) Math.round(Math.random() * 3) + 1;
         simondice.add(valor);
