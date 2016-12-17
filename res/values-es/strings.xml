@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SimonColor</string>
+    <string name="app_name">Simon dice color</string>
     <string name="explicacion">Dale a empezar y recuerda los colores que aparecen, iran de uno en uno, a ver hasta donde llegas!</string>
     <string name="start">EMPEZAR</string>
 </resources>
