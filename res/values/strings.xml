@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Simon say colors</string>
+    <string name="app_name" translatable="false">Simon says colors</string>
     <string name="start">START</string>
     <string name="explicacion">Press start and remember the colors displayed, they will go one by one, to see how far you get!</string>
 </resources>

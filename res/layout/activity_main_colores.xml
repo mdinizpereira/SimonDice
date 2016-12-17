@@ -7,4 +7,36 @@
     android:layout_height="match_parent"
     tools:context="com.example.simoncolor.mainColores">
 
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:rowCount="2"
+        android:columnCount="2">
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/verdef"
+            android:id="@+id/green" />
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/rojof"
+            android:id="@+id/red" />
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/amarillof"
+            android:id="@+id/yellow" />
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:background="@color/azulf"
+            android:id="@+id/blue" />
+
+    </GridLayout>
 </LinearLayout>
