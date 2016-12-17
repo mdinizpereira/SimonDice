@@ -57,6 +57,9 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                 contestacion.add(4);
                 break;
             case R.id.button:
+                if(!contestacion.isEmpty()){
+                    contestacion.clear();
+                }
                 v.setEnabled(false);
                 nuevocolor();
                 explicacion.setText("0");
