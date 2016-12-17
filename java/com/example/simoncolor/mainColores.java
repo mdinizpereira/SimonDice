@@ -60,6 +60,9 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                 if (!contestacion.isEmpty()) {
                     contestacion.clear();
                 }
+                nuevocolor();
+                explicacion.setText("0");
+                explicacion.setTextSize(24);
                 break;
         }
     }
@@ -95,6 +98,24 @@ public class mainColores extends AppCompatActivity implements OnClickListener{
                     bflash.setBackgroundColor(Color.parseColor("#D7DF01"));
             }
         }, 500);
+    }
+    public void nuevocolor() {
+        int valor = (int) Math.round(Math.random() * 3) + 1;
+        simondice.add(valor);
+        switch (valor) {
+            case 1:
+                parpadear(azul);
+                break;
+            case 2:
+                parpadear(rojo);
+                break;
+            case 3:
+                parpadear(verde);
+                break;
+            case 4:
+                parpadear(amarillo);
+                break;
+        }
     }
 
 }
